@@ -19,15 +19,19 @@ $yourName = "kat";
 ?>
     
 <h2><?php echo($yourName) ?>  </h2>
+    <p>Number 1: <?php echo($num1); ?> </p>
+    <p>Number 2: <?php echo($num2); ?> </p>
+<p>When added together: <?php echo($total); ?></p>
+    
 
-<p><?php echo($num1, $num2, $total); ?></p>
+<script>    
+<?php $languageList = "'php','html','javascript'"; ?>  
 
     
-<?php $languageList = "'php','html','javascript'"; ?>    
-
-<script> 
-        
-        let languages= [<?php echo($languageList;)?>];
+let languages = [<?php echo $languageList; ?>];
+    
+    console.log(languages);
+    alert(languages);
 </script>
 
 
