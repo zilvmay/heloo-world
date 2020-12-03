@@ -62,17 +62,14 @@
 	
 <?php
 
-$dbname = "wdv341";
-$servername = "localhost";
-$username = "username";
-$password = "";
+
 
 require'../dbConnect.php';
 
 
 
 try {
-	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	$conn = new PDO("mysql:host=$serverName;dbname=$database", $username, $password);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $conn->prepare("SELECT * FROM wdv341_products ORDER BY product_name DESC");
 	$stmt->execute();
@@ -95,7 +92,7 @@ try {
 
 ?>
 
-/*out put*/
+
 <?php 
 		while ($row=$stmt->fetch(PDO::FETCH_ASSOC)){
 ?>
@@ -110,7 +107,7 @@ try {
 		<p class="productPrice"><?php echo $row['product_price']; ?></p>
 		<p class="productStatus"><?php echo $row['product_status']; ?></p>
 		<p class="productInventory
-		<?php if ($row['product_inStock']< 10){
+			<?php if ($row['product_inStock']< 10){
 						echo 'productLowInventory';
 						} ?>">
 			<?php echo $row['product_inStock']; ?> In Stock!</p>
