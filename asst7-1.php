@@ -45,17 +45,13 @@
 					}
 				} 
 
-
-
-				$servername = "localhost";
-				$username = "username";
-				$password = "password";
-				$dbname = "wdv341";
-
+				//database info and connect
+				
+				
 				require'dbConnect.php';
 
 				try {
-					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+					$conn = new PDO("mysql:host=$serverName;dbname=$database", $username, $password);
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 					$stmt = $conn->prepare("SELECT event_name, event_description, event_presenter, event_date FROM wdv341_events");
 					$stmt->execute();
